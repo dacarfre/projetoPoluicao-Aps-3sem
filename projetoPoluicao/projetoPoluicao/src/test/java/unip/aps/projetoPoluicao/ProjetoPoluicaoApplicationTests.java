@@ -1,4 +1,4 @@
-package cc.semestre.aps.projetoPoluicao;
+package unip.aps.projetoPoluicao;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
