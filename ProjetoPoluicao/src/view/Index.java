@@ -23,16 +23,32 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JRadioButton;
 import javax.swing.JFormattedTextField;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JDesktopPane;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.JSplitPane;
+import java.awt.BorderLayout;
+import net.miginfocom.swing.MigLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class Index extends JFrame {
 	
 
 	public static JPanel contentPane;
-	
-	public JButton btnResumo;
-	public JButton btnRankPoluicao;
-	public JButton btnRankMorte;
-	public JButton btnSolucao;
 	
 	public static JFormattedTextField txtDtNasc;
 
@@ -60,90 +76,61 @@ public class Index extends JFrame {
 		setBounds(100, 100, 623, 300);
 		contentPane = new ContentPanel();
 		setContentPane(contentPane);
-		contentPane.setLayout(null);		
+		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 		
-
-		//Resumo
+		JSplitPane splitPane = new JSplitPane();
+		contentPane.add(splitPane);
 		
-		JLabel lblResumo =  new JLabel("Ler resumo:");
-		lblResumo.setForeground(new Color(230, 230, 250));
-		lblResumo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblResumo.setFont(new Font("Arial", Font.BOLD, 16));
-		lblResumo.setBounds(0, 0, 125, 19);
-		contentPane.add(lblResumo);
+		JPanel pnMenu = new JPanel();
+		splitPane.setLeftComponent(pnMenu);
+		pnMenu.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		btnResumo = new JButton("Resumo");
-		btnResumo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		JButton btnNewButton = new JButton("Resumo");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Resumo frmResumo = new Resumo();
+				frmResumo.setVisible(true);
 				
 			}
 		});
+		btnNewButton.setFont(new Font("Nirmala UI", Font.BOLD, 16));
+		pnMenu.add(btnNewButton);
 		
-		btnResumo.setBounds(130, 0, 223, 30);
-		contentPane.add(btnResumo);
+		JLabel label_1 = new JLabel("");
+		pnMenu.add(label_1);
 		
-		//RankMorte
+		JButton btnNewButton_3 = new JButton("Rank de Mortes");
+		pnMenu.add(btnNewButton_3);
 		
-		JLabel lblRankMorte =  new JLabel("Rank de mortes:");
-		lblRankMorte.setForeground(new Color(230, 230, 250));
-		lblRankMorte.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRankMorte.setFont(new Font("Arial", Font.BOLD, 16));		
+		JLabel label = new JLabel("");
+		pnMenu.add(label);
 		
-		btnRankMorte = new JButton("Rank Morte");
-		btnRankMorte.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		//Layout
-		lblRankMorte.setBounds(0, 30, 125, 19);
-		contentPane.add(lblRankMorte);
+		JButton btnNewButton_2 = new JButton("Rank de Polui\u00E7\u00E3o");
+		pnMenu.add(btnNewButton_2);
 		
-		btnRankMorte.setBounds(130, 30, 223, 30);
-		contentPane.add(btnRankMorte);
+		JLabel label_2 = new JLabel("");
+		pnMenu.add(label_2);
 		
-		//RankPoluicao
+		JButton btnNewButton_1 = new JButton("Solu\u00E7\u00F5es");
+		pnMenu.add(btnNewButton_1);
 		
-		JLabel lblRankPoluicao =  new JLabel("Rank de poluição:");
-		lblRankPoluicao.setForeground(new Color(230, 230, 250));
-		lblRankPoluicao.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRankPoluicao.setFont(new Font("Arial", Font.BOLD, 16));
+		JPanel pnHome = new JPanel();
+		pnHome.setBackground(SystemColor.controlHighlight);
+		splitPane.setRightComponent(pnHome);
+		pnHome.setLayout(new BorderLayout(0, 0));
 		
-		
-		btnRankPoluicao = new JButton("Rank Poluição");
-		btnRankPoluicao.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		//Layout
-		lblRankPoluicao.setBounds(0, 60, 125, 19);
-		contentPane.add(lblRankPoluicao);
-		
-		btnRankPoluicao.setBounds(130, 60, 223, 30);
-		contentPane.add(btnRankPoluicao);
+		JLabel lblNewLabel = new JLabel("Polui\u00E7\u00E3o Mundial");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Consolas", Font.BOLD, 43));
+		pnHome.add(lblNewLabel, BorderLayout.CENTER);
 		
 		
-		//Solucao
+      
+		ImageIcon imgIcon = new ImageIcon(Index.class.getResource("/assets/img/Polui\u00E7\u00E3oBackground.jpg"));
+		Image image = imgIcon.getImage(); // transform it 
+		Image newimg = image.getScaledInstance(349, 222,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way  
+		imgIcon = new ImageIcon(newimg);
 		
-		JLabel lblSolucao =  new JLabel("Soluções:");
-		lblSolucao.setForeground(new Color(230, 230, 250));
-		lblSolucao.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSolucao.setFont(new Font("Arial", Font.BOLD, 16));
-		
-		
-		btnSolucao = new JButton("Solução");
-		btnSolucao.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		//Layout
-		lblSolucao.setBounds(0, 90, 125, 19);
-		contentPane.add(lblSolucao);
-		
-		btnSolucao.setBounds(130, 90, 223, 30);
-		contentPane.add(btnSolucao);
 		
 		
 		
