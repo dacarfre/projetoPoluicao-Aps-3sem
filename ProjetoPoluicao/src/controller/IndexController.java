@@ -1,23 +1,30 @@
 package controller;
 
-import view.Index;
-import view.Rank;
+import enums.Ranks;
+import view.IndexForm;
+import view.RankForm;
+import view.ResumoForm;
+import view.SolucaoForm;
 
 public class IndexController {
-public static void abrirResumo() {
-		
+public void abrirResumo() {
+	ResumoForm frmResumo = new ResumoForm();
+	frmResumo.setVisible(true);
 }
 
-public static void abrirRankPoluicao() {
-	
+public void abrirRankPoluicao() {
+	RankForm frmRank = new RankForm(Ranks.RANK_POLUICAO);
+	frmRank.setVisible(true);
 }
 
-public static void abrirRankMorte() {
-	
+public void abrirRankMorte() {
+	RankForm frmRank = new RankForm(Ranks.RANK_MORTE);
+	frmRank.setVisible(true);
 }
 
-public static void abrirSolucao() {
-	
+public void abrirSolucao() {
+	SolucaoForm frmSolucao = new SolucaoForm();
+	frmSolucao.setVisible(true);
 }
 
 }
