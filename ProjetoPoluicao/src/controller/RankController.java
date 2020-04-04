@@ -49,7 +49,8 @@ public class RankController {
 	private DefaultTableModel getTableModel(String json) {
 		// Deserializar json para Lista da classe Rank	
 		
-		List<RankMorte> objeto= null;
+		List<Rank> ranks= new ArrayList<Rank>();
+		
 		
 		Object colunas[] = { "posicao", "pais", "mortes" };
 		
