@@ -45,7 +45,7 @@ public class RankController {
 
 		RankTableModel tableModel = getTableModel();
 		
-		/*
+		/* Demonstração de uma ideia doq fazer quando pegar os ArrayList >está incompleto<
 		 * ArrayList<Rank> ranksCSV= getDados(json); 
 		 * 
 		 * for (Rank rank : ranksCSV) {
@@ -58,6 +58,7 @@ public class RankController {
 		
 		//ERRO: Não está inserindo a posição dos ranks
 		
+		//Parte que será retirada depois{
 		Rank rank=null;
 		switch (_rank) {
 		case RANK_MORTE:
@@ -68,6 +69,7 @@ public class RankController {
 			break;
 		}
 		tableModel.addRank(rank);
+		//}
 
 		RankTable rankTable = new RankTable(tableModel);
 		return rankTable;
