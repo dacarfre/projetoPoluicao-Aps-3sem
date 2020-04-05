@@ -1,8 +1,10 @@
 package model;
 
 public class RankMorte extends Rank {
-	public RankMorte(int posicao,float quantidade,String pais, int mortes) {
-		// TODO Auto-generated constructor stub
+	public RankMorte(int posicao,String pais, int mortes) {
+		super(posicao);
+		this.setPais(pais);
+		this.setMortes(mortes);
 	}
 	
 	private String pais;

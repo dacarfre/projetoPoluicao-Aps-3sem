@@ -1,14 +1,18 @@
-package util;
+package util.Tables;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-import javax.swing.table.DefaultTableModel;
 
 public class RankTable extends JTable {
-	public RankTable(DefaultTableModel tableModel) {
-		super(tableModel);
+	public RankTable(RankTableModel rankTableModel) {
+		super(rankTableModel);
 		this.createTable();
 	}
+	
+	/*public RankTable(RankTableModel rankTableModel) {
+		super(rankTableModel);
+		this.createTable();
+	}*/
 
 	public RankTable(Object[][] dados, Object[] colunas) {
 		super(dados, colunas);
@@ -17,8 +21,13 @@ public class RankTable extends JTable {
 	
 	private void createTable() {	
 		this.getTableHeader().setReorderingAllowed(false);
-		this.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		this.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	}
+	
+	@Override
+	public boolean isCellEditable(int rowIndex, int columnIndex) {
+	    return false;
 	}
 
 }

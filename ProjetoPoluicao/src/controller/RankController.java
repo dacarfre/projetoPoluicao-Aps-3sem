@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -12,58 +11,89 @@ import javax.swing.table.DefaultTableModel;
 import enums.Ranks;
 import model.Rank;
 import model.RankMorte;
+import model.RankPoluicao;
 import util.LeitorArquivo;
-import util.RankTable;
+import util.Tables.MorteTableModel;
+import util.Tables.PoluicaoTableModel;
+import util.Tables.RankTable;
+import util.Tables.RankTableModel;
 import view.RankForm;
 
 public class RankController {
-	private Ranks rank;
+	private Ranks _rank;
 
 	public RankController(Ranks rank) {
-		this.rank = rank;
+		this._rank = rank;
 	}
 
 	public String getTituloRank() {
-		return this.rank.getTitulo();
+		return this._rank.getTitulo();
 	}
 
 	public JTable getTabela() {
 		LeitorArquivo leitor = new LeitorArquivo();
 		String json = "";
 
-		switch (rank) {
-		case RANK_MORTE: {
-			json = leitor.lerCSV("Localização do .csv com dados de Morte");
+		switch (_rank) {
+		case RANK_MORTE:
+			json = leitor.lerCSV("dadosMorte.csv");
+			break;
+		case RANK_POLUICAO:
+			json = leitor.lerCSV("dadosPoluicao.csv");
+			break;
 		}
-		case RANK_POLUICAO: {
-			json = leitor.lerCSV("Localização do .csv com dados de Poluição");
-		}
-		}
-						
-		DefaultTableModel tableModel = getTableModel("");
-		RankTable rankTable = new RankTable(tableModel);
+
+		RankTableModel tableModel = getTableModel();
 		
+		/*
+		 * ArrayList<Rank> ranksCSV= getDados(json); 
+		 * 
+		 * for (Rank rank : ranksCSV) {
+		 * rank = new RankMorte(1, "Brasil", 20); 
+		 * rank = new RankPoluicao(0,"São Paulo", 0);
+		 * tableModel.addRank(rank); 
+		 * }
+		 * 
+		 */
+		
+		//ERRO: Não está inserindo a posição dos ranks
+		
+		Rank rank=null;
+		switch (_rank) {
+		case RANK_MORTE:
+			rank = new RankMorte(1, "Brasil", 20);
+			break;
+		case RANK_POLUICAO:
+			rank = new RankPoluicao(1, "São Paulo", 0);
+			break;
+		}
+		tableModel.addRank(rank);
+
+		RankTable rankTable = new RankTable(tableModel);
 		return rankTable;
 	}
 
-	private DefaultTableModel getTableModel(String json) {
-		// Deserializar json para Lista da classe Rank	
-		
-		List<Rank> ranks= new ArrayList<Rank>();
-		
-		
-		Object colunas[] = { "posicao", "pais", "mortes" };
-		
-		String dados[][] = Arrays.stream(colunas)
-				.toArray(String[][]::new);
-		
-		//Object dados[][] = { { "Row1-Column1", "Row1-Column2", "Row1-Column3" },
-		//{ "Row2-Column1", "Row2-Column2", "Row2-Column3" } };
-		
-		DefaultTableModel tableModel = new DefaultTableModel(dados, colunas);
-		
-		return tableModel;
+	private RankTableModel getTableModel() {
+		RankTableModel rankTableModel = null;
+		switch (_rank) {
+		case RANK_MORTE:
+			rankTableModel = new MorteTableModel();
+			break;
+		case RANK_POLUICAO:
+			rankTableModel = new PoluicaoTableModel();
+			break;
+		}
 
+		return rankTableModel;
+	}
+
+	private ArrayList<Rank> getDados(String json) {
+		// **Deserializar json para Lista da classe Rank
+		// ArrayList<Rank> ranks= new ArrayList<Rank>();
+		// ArrayList<Rank> ranks= new ArrayList<RankMorte>();
+		// ArrayList<Rank> ranks= new ArrayList<RankPoluicao>();
+
+		return new ArrayList<Rank>();
 	}
 
 }

@@ -1,22 +1,18 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.IndexController;
 import controller.SolucaoController;
 
 import javax.swing.JTextPane;
-import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 public class SolucaoForm extends JFrame {

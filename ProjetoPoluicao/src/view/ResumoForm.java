@@ -1,24 +1,19 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.IndexController;
 import controller.ResumoController;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JSplitPane;
-import javax.swing.JTextField;
-import javax.swing.DropMode;
 import javax.swing.JTextPane;
-import java.awt.SystemColor;
 import java.awt.Color;
+import java.awt.GridLayout;
 
 public class ResumoForm extends JFrame {
 
@@ -53,7 +48,7 @@ public class ResumoForm extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 153, 204));
 		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		panel.setLayout(new GridLayout(0, 1, 0, 0));
 
 		JTextPane txtpnPorPoluioEntendese = new JTextPane();
 		txtpnPorPoluioEntendese.setForeground(new Color(255, 255, 255));
@@ -61,17 +56,6 @@ public class ResumoForm extends JFrame {
 		txtpnPorPoluioEntendese.setBackground(new Color(0, 153, 204));
 		txtpnPorPoluioEntendese.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		txtpnPorPoluioEntendese.setText(_resumoController.getDescricao());
-		txtpnPorPoluioEntendese.setBounds(61, 21, 250, 227);
 		panel.add(txtpnPorPoluioEntendese);
-
-		JTextPane textPane = new JTextPane();
-		textPane.setForeground(new Color(255, 255, 255));
-		textPane.setEditable(false);
-		textPane.setText(
-				"Por polui\u00E7\u00E3o entende-se a introdu\u00E7\u00E3o pelo homem, direta ou indiretamente, de subst\u00E2ncias ou energia no ambiente, provocando um efeito negativo no seu equil\u00EDbrio, causando assim danos \u00E0 sa\u00FAde humana, aos seres vivos e aos ecossistemas.[1]");
-		textPane.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		textPane.setBackground(new Color(0, 153, 204));
-		textPane.setBounds(353, 21, 250, 227);
-		panel.add(textPane);
 	}
 }

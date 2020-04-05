@@ -1,6 +1,12 @@
 package model;
 
 public class RankPoluicao extends Rank {
+	public RankPoluicao(int posicao,String cidade,float poluicao) {
+		super(posicao);
+		this.setCidade(cidade);
+		this.setPoluicao(poluicao);
+	}
+	
 	public String cidade;
 	public float poluicao;
 	

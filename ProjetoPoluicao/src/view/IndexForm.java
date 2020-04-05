@@ -4,50 +4,25 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.MaskFormatter;
 
 import controller.IndexController;
 
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 import java.awt.Font;
-import java.text.ParseException;
 
 import javax.swing.SwingConstants;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import javax.swing.JRadioButton;
 import javax.swing.JFormattedTextField;
-import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JDesktopPane;
-import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JSplitPane;
-import java.awt.BorderLayout;
-import net.miginfocom.swing.MigLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
 import javax.swing.ImageIcon;
-import java.awt.SystemColor;
-import java.awt.Component;
 
 public class IndexForm extends JFrame {
 	
-
 	public static JPanel contentPane;
 	
 	private final static IndexController _indexController= new IndexController();
@@ -150,12 +125,5 @@ public class IndexForm extends JFrame {
 		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.X_AXIS));
 		contentPane.add(pnHome);
 		contentPane.add(pnMenu);
-		
-		
-      
-		ImageIcon imgIcon = new ImageIcon(IndexForm.class.getResource("/assets/img/Polui\u00E7\u00E3oBackground.jpg"));
-		Image image = imgIcon.getImage(); // transform it 
-		Image newimg = image.getScaledInstance(349, 222,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way  
-		imgIcon = new ImageIcon(newimg);	
 	}
 }

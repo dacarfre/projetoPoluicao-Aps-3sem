@@ -1,5 +1,7 @@
 package controller;
 
+import javax.swing.JOptionPane;
+
 import util.LeitorArquivo;
 
 public class ResumoController {
@@ -8,12 +10,12 @@ public class ResumoController {
 		try {
 			LeitorArquivo leitorArquivo= new LeitorArquivo();
 			
-			String texto= leitorArquivo.lerTexto("C:\\Users\\Lucas\\Desktop\\Projetcs-master\\projetoPoluicao-Aps-3sem\\ProjetoPoluicao\\src\\assets\\resumo.txt");
+			String texto= leitorArquivo.lerTexto("bin/assets/resumo.txt");
 						
 			this.descricao= texto;
 			
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, ex.getMessage());
 		}		
 	}	
 		

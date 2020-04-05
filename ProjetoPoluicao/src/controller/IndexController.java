@@ -1,7 +1,6 @@
 package controller;
 
 import enums.Ranks;
-import view.IndexForm;
 import view.RankForm;
 import view.ResumoForm;
 import view.SolucaoForm;
