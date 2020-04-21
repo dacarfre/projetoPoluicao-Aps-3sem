@@ -20,8 +20,8 @@ public class PoluicaoTableModel extends RankTableModel {
 	@Override
 	public void setColunas() {
 		super.setColunas();
-		super.colunas.add("Cidade");
-		super.colunas.add("Poluicao");		
+		super.colunas.add("País");
+		super.colunas.add("CO2(Toneladas)");		
 	}
 
 	public void setValueAt(RankPoluicao aValue, int rowIndex) {

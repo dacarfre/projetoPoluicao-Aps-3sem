@@ -5,12 +5,11 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import enums.Ranks;
 import model.Rank;
 
 public abstract class RankTableModel extends AbstractTableModel {
 	
-	
-
 	protected List<Rank> ranks;
 	protected ArrayList<String> colunas;
 
@@ -47,7 +46,7 @@ public abstract class RankTableModel extends AbstractTableModel {
 
 		rank.setPosicao(aValue.getPosicao());
 
-		fireTableCellUpdated(rowIndex, 0);
+		//fireTableCellUpdated(rowIndex, 0);
 
 	}
 
@@ -62,7 +61,7 @@ public abstract class RankTableModel extends AbstractTableModel {
 		default:
 			System.err.println("Índice da coluna inválido");
 		}
-		fireTableCellUpdated(rowIndex, columnIndex);
+		//fireTableCellUpdated(rowIndex, columnIndex);
 	}
 
 	public Object getValueAt(int rowIndex, int columnIndex) {
@@ -117,5 +116,4 @@ public abstract class RankTableModel extends AbstractTableModel {
 	public boolean isEmpty() {
 		return ranks.isEmpty();
 	}
-
 }

@@ -11,12 +11,12 @@ public void abrirResumo() {
 	frmResumo.setVisible(true);
 }
 
-public void abrirRankPoluicao() {
+public void abrirRankPoluicao() throws Exception {
 	RankForm frmRank = new RankForm(Ranks.RANK_POLUICAO);
 	frmRank.setVisible(true);
 }
 
-public void abrirRankMorte() {
+public void abrirRankMorte() throws Exception {
 	RankForm frmRank = new RankForm(Ranks.RANK_MORTE);
 	frmRank.setVisible(true);
 }

@@ -30,16 +30,16 @@ public class RankController {
 		return this._rank.getTitulo();
 	}
 
-	public JTable getTabela() {
+	public JTable getTabela() throws Exception {
 		LeitorArquivo leitor = new LeitorArquivo();
 		String json = "";
 
 		switch (_rank) {
 		case RANK_MORTE:
-			json = leitor.lerCSV("dadosMorte.csv");
+			json = leitor.lerCSV("/bin/assests/dadosMorte.csv");
 			break;
 		case RANK_POLUICAO:
-			json = leitor.lerCSV("dadosPoluicao.csv");
+			json = leitor.lerCSV("/bin/assests/dadosPoluicao.csv");
 			break;
 		}
 

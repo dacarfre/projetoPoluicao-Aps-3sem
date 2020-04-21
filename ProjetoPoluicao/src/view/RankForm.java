@@ -26,13 +26,14 @@ public class RankForm extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public RankForm(Ranks rank) {
+	public RankForm(Ranks rank) throws Exception {
 		setResizable(false);
 		_rankController= new RankController(rank);
 		createFrame();
 	}
-	public void createFrame() {		
+	public void createFrame() throws Exception {		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 681, 372);
 		contentPane = new JPanel();
